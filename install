@@ -45,6 +45,10 @@ mkdir -p $HOME/.local/bin
 
 ln -sf $DOTFILES/scripts/t $HOME/.local/bin/t
 
+# NVIM
+rm -rf $HOME/.config/nvim
+ln -sw $DOTFILES/nvim $HOME/.config/nvim
+
 # Update Homebrew
 brew update
 
