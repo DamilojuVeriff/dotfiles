@@ -1,0 +1,1 @@
+alias zshreload="source ~/.zshrc"
