@@ -13,9 +13,8 @@ else
 fi
 
 # Check for Oh My Zsh and install if we don't have it
-if test ! "$(which omz)"; then
-  # /bin/sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/HEAD/tools/install.sh)"
-  echo "Installing ohmyzsh"
+if [ ! -d "$HOME/.oh-my-zsh" ]; then
+  /bin/sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/HEAD/tools/install.sh)"
 fi
 
 # Check for Homebrew and install if we don't have it
@@ -38,6 +37,14 @@ ln -sw $DOTFILES/zsh/.p10k.zsh $HOME/.p10k.zsh
 rm -rf $HOME/.hushlogin
 ln -sw $DOTFILES/.hushlogin $HOME/.hushlogin
 
+# Tmux
+ln -sf $DOTFILES/tmux/tmux.conf $HOME/.tmux.conf
+
+# Scripts
+mkdir -p $HOME/.local/bin
+
+ln -sf $DOTFILES/scripts/t $HOME/.local/bin/t
+
 # Update Homebrew recipes
 brew update
 
@@ -45,4 +52,4 @@ brew update
 brew bundle --file ./homebrew/Brewfile
 
 # Create a projects directories
-mkdir $HOME/Code
+mkdir -p $HOME/Code

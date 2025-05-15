@@ -86,6 +86,11 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
+path=(
+    $HOME/.local/bin
+    $path
+)
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment

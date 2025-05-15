@@ -3,3 +3,4 @@ brew 'nvm'
 
 # Apps
 brew 'neovim'
+brew 'tmux'
