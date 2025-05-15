@@ -43,3 +43,6 @@ brew update
 
 # Install all our dependencies with bundle (See Brewfile)
 brew bundle --file ./homebrew/Brewfile
+
+# Create a projects directories
+mkdir $HOME/Code
