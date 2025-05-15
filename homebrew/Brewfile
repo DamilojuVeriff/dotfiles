@@ -4,3 +4,4 @@ brew 'nvm'
 # Apps
 brew 'neovim'
 brew 'tmux'
+brew 'fzf'

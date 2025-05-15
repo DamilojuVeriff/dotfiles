@@ -45,7 +45,7 @@ mkdir -p $HOME/.local/bin
 
 ln -sf $DOTFILES/scripts/t $HOME/.local/bin/t
 
-# Update Homebrew recipes
+# Update Homebrew
 brew update
 
 # Install all our dependencies with bundle (See Brewfile)
