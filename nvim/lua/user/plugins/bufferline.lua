@@ -46,7 +46,7 @@ return {
         end,
         right = function()
           return {
-            { text = '    ', fg = '#8fff6d' },
+            { text = '    ', fg = '#8fff6d' },
           }
         end,
       },
