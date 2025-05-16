@@ -21,7 +21,7 @@ chmod +x install
 ./install
 ````
 
-It's a good idea to take a look at the `install` bash script to get an feel for what is happening. 
+It's a good idea to take a look at the `install` bash script to get a feel for what is happening. 
 
 Lines are commented so it should be easy to follow.
 
