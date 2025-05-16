@@ -55,5 +55,10 @@ brew update
 # Install all our dependencies with bundle (See Brewfile)
 brew bundle --file ./homebrew/Brewfile
 
+# NVM (Node Version Manager)
+mkdir -p $HOME/.nvm
+ln -sf $DOTFILES/nvm/default-packages $HOME/.nvm/default-packages
+
 # Create a projects directories
 mkdir -p $HOME/Code
+
