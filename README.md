@@ -2,7 +2,12 @@
 
 Theses are Dotfiles for easy boostraping and backup of any of my macs. 
 
-Features iterm2,homebrew,nvim,ohmyzsh and tmux settings.
+#### Features 
+- iterm2
+- homebrew
+- nvim
+- ohmyzsh
+- tmux
 
 Nvim module is heavily influenced by [Jess Archer](https://github.com/jessarcher). Checkout their course at [Laracasts](https://laracasts.com/series/neovim-as-a-php-ide).
 
