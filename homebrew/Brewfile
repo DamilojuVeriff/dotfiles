@@ -9,3 +9,6 @@ brew 'ripgrep'
 brew 'cmake'
 brew 'deno'
 brew 'wget'
+
+# Services
+brew 'redis'
