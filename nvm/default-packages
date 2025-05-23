@@ -9,4 +9,5 @@ tree-sitter-cli
 typescript
 typescript-language-server
 vscode-langservers-extracted
+vscode-json-languageserver
 emmet-ls
