@@ -1,6 +1,7 @@
 # Development
 brew 'nvm'
 brew 'lua-language-server'
+brew 'kubectl'
 
 # Apps
 brew 'neovim'
