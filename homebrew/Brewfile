@@ -2,6 +2,7 @@
 brew 'nvm'
 brew 'lua-language-server'
 brew 'kubectl'
+brew 'awscli'
 
 # Apps
 brew 'neovim'
