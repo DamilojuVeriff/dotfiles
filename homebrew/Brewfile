@@ -4,6 +4,7 @@ brew 'lua-language-server'
 brew 'kubectl'
 brew 'awscli'
 brew 'socat'
+brew 'vscode-langservers-extracted'
 
 # Apps
 brew 'neovim'
