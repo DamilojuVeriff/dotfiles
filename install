@@ -63,6 +63,10 @@ brew bundle --file ./homebrew/Brewfile
 mkdir -p $HOME/.nvm
 ln -sf $DOTFILES/nvm/default-packages $HOME/.nvm/default-packages
 
+# pyenv
+mkdir -p $HOME/.pyenv
+ln -sf $DOTFILES/pyenv $HOME/.pyenv
+
 # Create a projects directories
 mkdir -p $HOME/Code
 

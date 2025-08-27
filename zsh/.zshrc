@@ -127,3 +127,6 @@ export NVM_DIR="$HOME/.nvm"
 PATH="/usr/local/opt/python@3.8/bin:$PATH"
 PATH="/usr/local/opt/python@3.10/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
+
+eval "$(pyenv init -)"
+if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi

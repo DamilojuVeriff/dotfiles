@@ -5,6 +5,11 @@ brew 'kubectl'
 brew 'awscli'
 brew 'socat'
 brew 'vscode-langservers-extracted'
+brew 'pyenv'
+brew 'pyenv-virtualenv'
+brew 'go'
+brew 'ncurses'
+brew 'pipx'
 
 # Apps
 brew 'neovim'
