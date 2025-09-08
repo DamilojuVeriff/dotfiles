@@ -10,6 +10,8 @@ brew 'pyenv-virtualenv'
 brew 'go'
 brew 'ncurses'
 brew 'pipx'
+brew 'graphviz'
+brew 'postgresql@14'
 
 # Apps
 brew 'neovim'
