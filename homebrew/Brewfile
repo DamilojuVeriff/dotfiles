@@ -1,6 +1,8 @@
 # Development
 brew 'nvm'
+brew 'lua'
 brew 'lua-language-server'
+brew 'luarocks'
 brew 'kubectl'
 brew 'awscli'
 brew 'socat'
