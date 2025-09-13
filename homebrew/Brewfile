@@ -12,6 +12,7 @@ brew 'ncurses'
 brew 'pipx'
 brew 'graphviz'
 brew 'postgresql@14'
+brew 'buf'
 
 # Apps
 brew 'neovim'
