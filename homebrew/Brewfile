@@ -15,6 +15,7 @@ brew 'pipx'
 brew 'graphviz'
 brew 'postgresql@14'
 brew 'buf'
+brew 'lazygit'
 
 # Apps
 brew 'neovim'
