@@ -16,6 +16,7 @@ brew 'graphviz'
 brew 'postgresql@14'
 brew 'buf'
 brew 'lazygit'
+cask 'ngrok'
 
 # Apps
 brew 'neovim'
