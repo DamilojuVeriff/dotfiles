@@ -37,6 +37,7 @@ return {
     })
 
     vim.lsp.config('ts_ls', {
+      capabilities = capabilities,
       init_options = {
         plugins = {
           {
@@ -105,6 +106,32 @@ return {
     vim.keymap.set('n', '<Leader>lr', ':LspRestart<CR>', { silent = true })
     vim.keymap.set('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>')
     vim.keymap.set('n', '<Leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>')
+
+    -- TypeScript-specific keymaps
+    vim.keymap.set('n', '<Leader>oi', function()
+      vim.lsp.buf.code_action({
+        apply = true,
+        context = { only = { 'source.organizeImports.ts' } },
+      })
+    end, { desc = 'Organize imports' })
+
+    vim.keymap.set('n', '<Leader>ai', function()
+      vim.lsp.buf.code_action({
+        apply = true,
+        context = { only = { 'source.addMissingImports.ts' } },
+      })
+    end, { desc = 'Add missing imports' })
+
+    vim.keymap.set('n', '<Leader>ru', function()
+      vim.lsp.buf.code_action({
+        apply = true,
+        context = { only = { 'source.removeUnused.ts' } },
+      })
+    end, { desc = 'Remove unused imports' })
+
+    vim.keymap.set('n', 'gD', function()
+      vim.lsp.buf.definition({ loclist = true, reuse_win = true })
+    end, { desc = 'Go to source definition' })
 
     -- Diagnostic configuration
     vim.diagnostic.config({

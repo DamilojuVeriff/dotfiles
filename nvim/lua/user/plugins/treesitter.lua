@@ -74,6 +74,7 @@ return {
       'rust',
       'sql',
       'svelte',
+      'tsx',
       'typescript',
       'vim',
       'vue',
