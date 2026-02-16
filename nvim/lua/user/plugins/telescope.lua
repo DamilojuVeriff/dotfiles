@@ -59,7 +59,7 @@ return {
           prompt_position = 'top',
         },
         preview = {
-          filesize_limit = 1,
+          filesize_limit = 0.5,
           timeout = 200,
           msg_bg_fillchar = ' ',
         },

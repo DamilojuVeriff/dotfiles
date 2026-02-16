@@ -5,6 +5,35 @@ return {
   dependencies = 'tpope/vim-dispatch',
   config = function()
     vim.g.projectionist_heuristics = {
+      ['tsconfig.json'] = {
+        ['src/*.ts'] = {
+          type = 'source',
+          alternate = {
+            'src/{}.test.ts',
+            'src/{}.spec.ts',
+            'tests/{}.test.ts',
+          },
+        },
+        ['src/*.tsx'] = {
+          type = 'source',
+          alternate = {
+            'src/{}.test.tsx',
+            'src/{}.spec.tsx',
+          },
+        },
+        ['src/*.test.ts'] = {
+          type = 'test',
+          alternate = 'src/{}.ts',
+        },
+        ['src/*.spec.ts'] = {
+          type = 'test',
+          alternate = 'src/{}.ts',
+        },
+        ['src/*.test.tsx'] = {
+          type = 'test',
+          alternate = 'src/{}.tsx',
+        },
+      },
       artisan = {
         ['*'] = {
           start = 'php artisan serve',

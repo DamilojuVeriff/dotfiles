@@ -9,7 +9,7 @@ return {
       opts = {
         lsp = {
           auto_attach = true,
-          preference = { "intelephense" },
+          preference = { "ts_ls" },
         }
       },
     },

@@ -49,10 +49,6 @@ ln -sf $DOTFILES/scripts/t $HOME/.local/bin/t
 rm -rf $HOME/.config/nvim
 ln -sw $DOTFILES/nvim $HOME/.config/nvim
 
-# remove and link rabbitmq config
-rm -rf /opt/homebrew/etc/rabbitmq/rabbitmq.conf
-ln -sw $DOTFILES/rabbitmq/rabbitmq.conf /opt/homebrew/etc/rabbitmq/rabbitmq.conf
-
 # Update Homebrew
 brew update
 
@@ -63,9 +59,17 @@ brew bundle --file ./homebrew/Brewfile
 mkdir -p $HOME/.nvm
 ln -sf $DOTFILES/nvm/default-packages $HOME/.nvm/default-packages
 
-# pyenv
-mkdir -p $HOME/.pyenv
-ln -sf $DOTFILES/pyenv $HOME/.pyenv
+# Lazygit
+mkdir -p $HOME/.config/lazygit
+ln -sf $DOTFILES/lazygit/config.yml $HOME/.config/lazygit/config.yml
+
+# Editorconfig
+ln -sf $DOTFILES/.editorconfig $HOME/.editorconfig
+
+# Tmux Plugin Manager
+if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
+  git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
+fi
 
 # Create a projects directories
 mkdir -p $HOME/Code

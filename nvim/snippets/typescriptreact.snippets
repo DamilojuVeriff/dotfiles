@@ -1,0 +1,16 @@
+extends typescript
+
+snippet rfc "React functional component"
+	export function ${1:Component}(${2}) {
+		return (
+			${0:<div></div>}
+		)
+	}
+
+snippet us "useState"
+	const [${1}, set${2}] = useState(${3})
+
+snippet ue "useEffect"
+	useEffect(() => {
+		${0}
+	}, [${1}])
