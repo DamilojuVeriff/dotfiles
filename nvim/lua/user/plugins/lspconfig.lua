@@ -22,7 +22,7 @@ return {
     local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
     -- PHP
-    require('lspconfig').intelephense.setup({
+    vim.lsp.config('intelephense', {
       commands = {
         IntelephenseIndex = {
           function()
@@ -30,15 +30,25 @@ return {
           end,
         },
       },
-      on_attach = function(client, bufnr)
-        -- client.server_capabilities.documentFormattingProvider = false
-        -- client.server_capabilities.documentRangeFormattingProvider = false
-        -- if client.server_capabilities.inlayHintProvider then
-        --   vim.lsp.buf.inlay_hint(bufnr, true)
-        -- end
-      end,
       capabilities = capabilities
     })
+    -- require('lspconfig').intelephense.setup({
+    --   commands = {
+    --     IntelephenseIndex = {
+    --       function()
+    --         vim.lsp.buf.execute_command({ command = 'intelephense.index.workspace' })
+    --       end,
+    --     },
+    --   },
+    --   on_attach = function(client, bufnr)
+    --     -- client.server_capabilities.documentFormattingProvider = false
+    --     -- client.server_capabilities.documentRangeFormattingProvider = false
+    --     -- if client.server_capabilities.inlayHintProvider then
+    --     --   vim.lsp.buf.inlay_hint(bufnr, true)
+    --     -- end
+    --   end,
+    --   capabilities = capabilities
+    -- })
 
     -- require('lspconfig').phpactor.setup({
     --   capabilities = capabilities,
@@ -68,18 +78,21 @@ return {
     -- })
 
     -- Vue, JavaScript, TypeScript
-    require('lspconfig').volar.setup({
-      on_attach = function(client, bufnr)
-        client.server_capabilities.documentFormattingProvider = false
-        client.server_capabilities.documentRangeFormattingProvider = false
-        -- if client.server_capabilities.inlayHintProvider then
-        --   vim.lsp.buf.inlay_hint(bufnr, true)
-        -- end
-      end,
+    vim.lsp.config('volar', {
       capabilities = capabilities,
     })
+    -- require('lspconfig').volar.setup({
+    --   on_attach = function(client, bufnr)
+    --     client.server_capabilities.documentFormattingProvider = false
+    --     client.server_capabilities.documentRangeFormattingProvider = false
+    --     -- if client.server_capabilities.inlayHintProvider then
+    --     --   vim.lsp.buf.inlay_hint(bufnr, true)
+    --     -- end
+    --   end,
+    --   capabilities = capabilities,
+    -- })
 
-    require('lspconfig').ts_ls.setup({
+    vim.lsp.config('ts_ls', {
       init_options = {
         plugins = {
           {
@@ -100,11 +113,33 @@ return {
       },
     })
 
+    -- require('lspconfig').ts_ls.setup({
+    --   init_options = {
+    --     plugins = {
+    --       {
+    --         name = "@vue/typescript-plugin",
+    --         location = "/usr/local/lib/node_modules/@vue/typescript-plugin",
+    --         languages = {"javascript", "typescript", "vue"},
+    --       },
+    --     },
+    --   },
+    --   filetypes = {
+    --     "javascript",
+    --     "javascriptreact",
+    --     "javascript.jsx",
+    --     "typescript",
+    --     "typescriptreact",
+    --     "typescript.tsx",
+    --     "vue",
+    --   },
+    -- })
+
     -- Tailwind CSS
-    require('lspconfig').tailwindcss.setup({ capabilities = capabilities })
+    vim.lsp.config('tailwindcss', { capabilities = capabilities })
+    -- require('lspconfig').tailwindcss.setup({ capabilities = capabilities })
 
     -- JSON
-    require('lspconfig').jsonls.setup({
+    vim.lsp.config('jsonls', {
       capabilities = capabilities,
       settings = {
         json = {
@@ -112,9 +147,17 @@ return {
         },
       },
     })
+    -- require('lspconfig').jsonls.setup({
+    --   capabilities = capabilities,
+    --   settings = {
+    --     json = {
+    --       schemas = require('schemastore').json.schemas(),
+    --     },
+    --   },
+    -- })
 
     -- Lua
-    require('lspconfig').lua_ls.setup({
+    vim.lsp.config('lua_ls', {
       settings = {
         Lua = {
           runtime = { version = 'LuaJIT' },
@@ -128,6 +171,20 @@ return {
         }
       }
     })
+    -- require('lspconfig').lua_ls.setup({
+    --   settings = {
+    --     Lua = {
+    --       runtime = { version = 'LuaJIT' },
+    --       workspace = {
+    --         checkThirdParty = false,
+    --         library = {
+    --           '${3rd}/luv/library',
+    --           unpack(vim.api.nvim_get_runtime_file('', true)),
+    --         },
+    --       }
+    --     }
+    --   }
+    -- })
 
     -- require('lspconfig').eslint.setup({
     --   capabilities = capabilities,
@@ -224,5 +281,14 @@ return {
     vim.fn.sign_define('DiagnosticSignWarn', { text = '', texthl = 'DiagnosticSignWarn' })
     vim.fn.sign_define('DiagnosticSignInfo', { text = '', texthl = 'DiagnosticSignInfo' })
     vim.fn.sign_define('DiagnosticSignHint', { text = '', texthl = 'DiagnosticSignHint' })
+
+    -- Enable LSP servers
+    vim.lsp.enable({
+      'intelephense',
+      'volar',
+      'ts_ls',
+      'jsonls',
+      'lua_ls'
+    })
   end,
 }
