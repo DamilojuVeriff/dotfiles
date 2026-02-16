@@ -1,7 +1,7 @@
 -- Colorize Hex Codes
 
 return {
-  'NvChad/nvim-colorizer.lua',
+  'catgoose/nvim-colorizer.lua',
   opts = {
     user_default_options = {
       names = false,

@@ -91,7 +91,6 @@ return {
             luasnip.jump(1)
           elseif has_words_before() then
             cmp.complete()
-            print('complete...')
           else
             fallback()
           end

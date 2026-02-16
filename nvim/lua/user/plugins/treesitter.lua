@@ -7,28 +7,15 @@ return {
     require('nvim-treesitter.install').update({ with_sync = true })
   end,
   dependencies = {
-    { 'nvim-treesitter/playground', cmd = "TSPlaygroundToggle" },
     {
       'JoosepAlviste/nvim-ts-context-commentstring',
       opts = {
+        enable_autocmd = false,
         languages = {
           php_only = '// %s',
           php = '// %s',
-          -- blade = '{{-- %s --}}',
-          -- blade = {
-          --   __default = '{{-- %s --}}',
-          --   html = '{{-- %s --}}',
-          --   blade = '{{-- %s --}}',
-          --   php = '// %s',
-          --   php_only = '// %s',
-          -- }
         },
         custom_calculation = function (node, language_tree)
-          -- print(language_tree:lang())
-          -- print(node:type())
-          print(vim.bo.filetype)
-          print(language_tree._lang)
-          print('----')
           if vim.bo.filetype == 'blade' then
             if language_tree._lang == 'html' then
               return '{{-- %s --}}'
@@ -36,11 +23,19 @@ return {
               return '// %s'
             end
           end
-          -- if vim.bo.filetype == 'blade' and language_tree._lang ~= 'javascript' and language_tree._lang ~= 'php' then
-          --   return '{{-- %s --}}'
-          -- end
         end,
       },
+      config = function(_, opts)
+        require('ts_context_commentstring').setup(opts)
+
+        -- Integrate with Neovim's built-in commenting
+        local get_option = vim.filetype.get_option
+        vim.filetype.get_option = function(filetype, option)
+          return option == "commentstring"
+            and require("ts_context_commentstring.internal").calculate_commentstring()
+            or get_option(filetype, option)
+        end
+      end,
     },
     'nvim-treesitter/nvim-treesitter-textobjects',
   },
@@ -92,9 +87,6 @@ return {
     indent = {
       enable = true,
       disable = { "yaml" }
-    },
-    rainbow = {
-      enable = true,
     },
     textobjects = {
       select = {
