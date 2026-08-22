@@ -44,6 +44,6 @@ term = xterm-256color
 # Window
 # Force the terminal to use the macOS native wide color gamut
 window-colorspace = display-p3
-window-decoration = false
+window-decoration = true
 window-padding-x = 8
 window-padding-y = 8
