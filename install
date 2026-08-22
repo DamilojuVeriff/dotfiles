@@ -70,6 +70,11 @@ brew update
 # Install all our dependencies with bundle (See Brewfile)
 brew bundle --file ./homebrew/Brewfile
 
+# Ghostty
+echo ""
+echo "==> Linking Ghostty configuration"
+link_file $DOTFILES/ghostty/config.ghostty $HOME/Library/Application\ Support/com.mitchellh.ghostty/config.ghostty
+
 # NVM (Node Version Manager)
 echo ""
 echo "==> Linking NVM configuration..."

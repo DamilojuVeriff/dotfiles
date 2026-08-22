@@ -1,0 +1,49 @@
+# Appearance
+background = #1e1e1e
+background-opacity = 0.85
+foreground = #ffffff
+palette = 0=#1e1e1e
+palette = 1=#e06c75
+palette = 2=#98c379
+palette = 3=#d19a66
+palette = 4=#61afef
+palette = 5=#c678dd
+palette = 6=#56b6c2
+palette = 7=#dcdcdc
+palette = 8=#5a5a5a
+palette = 9=#e06c75
+palette = 10=#98c379
+palette = 11=#d19a66
+palette = 12=#61afef
+palette = 13=#c678dd
+palette = 14=#56b6c2
+palette = 15=#ffffff
+palette-generate = false
+selection-background = #ffffff
+selection-foreground = #1e1e1e
+
+# Cell Spacing (converted from iTerm2 Horizontal/Vertical Spacing)
+adjust-cell-height = 50%
+adjust-cell-width = 1
+
+# Cursor
+cursor-color = #ffffff
+cursor-style = block
+cursor-style-blink = true
+cursor-text = #1e1e1e
+
+# Font
+font-family = FiraCode Nerd Font
+font-size = 13
+
+# Terminal
+copy-on-select = clipboard
+shell-integration = detect
+term = xterm-256color
+
+# Window
+# Force the terminal to use the macOS native wide color gamut
+window-colorspace = display-p3
+window-decoration = false
+window-padding-x = 8
+window-padding-y = 8
