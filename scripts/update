@@ -14,7 +14,7 @@ echo ""
 
 # Neovim plugins
 echo "📝 Updating Neovim plugins..."
-nvim --headless "+Lazy sync" +qa
+nvim --headless "+Lazy! sync" +qa
 echo ""
 
 # NVM & Node
