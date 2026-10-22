@@ -21,7 +21,13 @@ echo ""
 if command -v nvm &> /dev/null || [ -s "$NVM_DIR/nvm.sh" ]; then
     echo "📗 Checking for Node.js updates..."
     source "$NVM_DIR/nvm.sh"
-    nvm install --lts --reinstall-packages-from=current
+    latest_lts=$(nvm version-remote --lts)
+    if [ "$(nvm version default)" != "$latest_lts" ]; then
+        nvm install --lts --reinstall-packages-from=default
+        nvm alias default "$latest_lts"
+    else
+        echo "Already on latest LTS ($latest_lts)"
+    fi
     echo ""
 fi
 
