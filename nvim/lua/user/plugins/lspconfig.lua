@@ -36,27 +36,8 @@ return {
       capabilities = capabilities,
     })
 
-    vim.lsp.config('ts_ls', {
-      capabilities = capabilities,
-      init_options = {
-        plugins = {
-          {
-            name = "@vue/typescript-plugin",
-            location = vim.fn.trim(vim.fn.system("npm root -g")) .. "/@vue/typescript-plugin",
-            languages = {"javascript", "typescript", "vue"},
-          },
-        },
-      },
-      filetypes = {
-        "javascript",
-        "javascriptreact",
-        "javascript.jsx",
-        "typescript",
-        "typescriptreact",
-        "typescript.tsx",
-        "vue",
-      },
-    })
+    -- TypeScript 7 native language server (`tsc --lsp`)
+    vim.lsp.config('tsc', { capabilities = capabilities })
 
     -- Tailwind CSS
     vim.lsp.config('tailwindcss', { capabilities = capabilities })
@@ -92,7 +73,7 @@ return {
     vim.lsp.enable({
       'intelephense',
       'volar',
-      'ts_ls',
+      'tsc',
       'tailwindcss',
       'jsonls',
       'lua_ls',
