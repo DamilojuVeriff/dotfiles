@@ -26,6 +26,7 @@ brew 'socat'
 brew 'tmux'
 brew 'wget'
 brew 'gh'
+brew 'colima'
 
 # LSP & Language Servers
 brew 'lua-language-server'
