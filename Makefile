@@ -38,7 +38,7 @@ ghostty:
 
 update:
 	brew upgrade
-	nvim --headless "+Lazy sync" +qa
+	nvim --headless "+Lazy! sync" +qa
 	$(HOME)/.tmux/plugins/tpm/bin/update_plugins all
 
 clean:

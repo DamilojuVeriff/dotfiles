@@ -137,3 +137,6 @@ npx()  { __load_nvm && npx  "$@"; }
 yarn() { __load_nvm && yarn "$@"; }
 
 
+
+# colima docker socket (added by setup-machine.sh)
+export DOCKER_HOST="unix:///Users/damiyusuf/.colima/default/docker.sock"
