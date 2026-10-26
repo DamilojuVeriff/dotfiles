@@ -27,6 +27,9 @@ brew 'tmux'
 brew 'wget'
 brew 'gh'
 brew 'colima'
+brew 'docker'
+brew 'docker-buildx'
+brew 'docker-compose'
 
 # LSP & Language Servers
 brew 'lua-language-server'
