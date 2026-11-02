@@ -138,5 +138,8 @@ yarn() { __load_nvm && yarn "$@"; }
 
 
 
-# colima docker socket (added by setup-machine.sh)
-export DOCKER_HOST="unix:///Users/damiyusuf/.colima/default/docker.sock"
+# colima docker socket (only if colima is set up on this machine)
+[ -d "$HOME/.colima" ] && export DOCKER_HOST="unix://$HOME/.colima/default/docker.sock"
+
+# development-setup update check (only if the repo is cloned; override path with DEVSETUP_DIR)
+[ -f "${DEVSETUP_DIR:-$HOME/Code/development-setup}/scripts/devsetup-update-check.sh" ] && case $- in *i*) bash "${DEVSETUP_DIR:-$HOME/Code/development-setup}/scripts/devsetup-update-check.sh" ;; esac
