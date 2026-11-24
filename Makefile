@@ -1,6 +1,6 @@
 DOTFILES := $(shell cd "$(dir $(abspath $(lastword $(MAKEFILE_LIST))))" && pwd)
 
-.PHONY: install brew nvim tmux zsh nvm ghostty update clean
+.PHONY: install brew nvim tmux zsh nvm ghostty lazygit git update clean
 
 install:
 	@bash $(DOTFILES)/install
@@ -36,6 +36,15 @@ ghostty:
 	@mkdir -p "$(HOME)/Library/Application Support/com.mitchellh.ghostty"
 	ln -sf $(DOTFILES)/ghostty/config.ghostty "$(HOME)/Library/Application Support/com.mitchellh.ghostty/config.ghostty"
 
+lazygit:
+	@mkdir -p $(HOME)/.config/lazygit
+	ln -sf $(DOTFILES)/lazygit/config.yml $(HOME)/.config/lazygit/config.yml
+
+git:
+	ln -sf $(DOTFILES)/git/gitconfig $(HOME)/.gitconfig
+	ln -sf $(DOTFILES)/git/.gitignore_global $(HOME)/.gitignore_global
+	@[ -f $(HOME)/.gitconfig.local ] || printf '[user]\n    email =\n' > $(HOME)/.gitconfig.local
+
 update:
 	brew upgrade
 	nvim --headless "+Lazy! sync" +qa
@@ -51,6 +60,7 @@ clean:
 	@rm -f $(HOME)/.nvm/default-packages
 	@rm -f $(HOME)/.gitconfig
 	@rm -f $(HOME)/.gitignore_global
+	@rm -f $(HOME)/.config/lazygit/config.yml
 	@rm -f $(HOME)/.local/bin/nvim-health
 	@rm -f $(HOME)/.local/bin/update
 	@rm -f "$(HOME)/Library/Application Support/com.mitchellh.ghostty/config.ghostty"

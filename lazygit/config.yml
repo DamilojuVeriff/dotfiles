@@ -1,5 +1,7 @@
 gui:
   nerdFontsVersion: "3"
+  # Taller command log (default 8 lines)
+  commandLogSize: 10
   theme:
     activeBorderColor:
       - "#7aa2f7"
@@ -25,3 +27,50 @@ gui:
       - "#db4b4b"
     defaultFgColor:
       - "#c0caf5"
+
+git:
+  # Cycle renderers with `|` (forward) and `\` (reverse).
+  # Delta styling lives in the [delta] section of git/gitconfig.
+  # Click a line number in a delta diff to open that line in the editor.
+  diffRenderers:
+    - name: delta
+      command: 'delta --dark --paging=never --line-numbers --hyperlinks --hyperlinks-file-link-format="lazygit-edit://{path}:{line}" {{if gt .width 160}}--side-by-side{{end}}'
+    - type: rawGit
+      name: default
+  # Skip hooks for wip commits made in lazygit (matches the `wip` alias)
+  skipHookPrefix: "chore: wip"
+
+os:
+  editPreset: nvim
+
+# Homebrew manages lazygit updates
+update:
+  method: never
+
+customCommands:
+  - key: <ctrl+v>
+    context: files
+    description: Conventional commit
+    loadingText: Committing...
+    prompts:
+      - type: menu
+        key: Type
+        title: Commit type
+        options:
+          - { value: feat, description: A new feature }
+          - { value: fix, description: A bug fix }
+          - { value: chore, description: Maintenance, tooling, deps }
+          - { value: refactor, description: Code change that is not a fix or feature }
+          - { value: docs, description: Documentation only }
+          - { value: test, description: Adding or fixing tests }
+          - { value: perf, description: Performance improvement }
+          - { value: style, description: Formatting, no code change }
+          - { value: ci, description: CI configuration }
+          - { value: build, description: Build system or dependencies }
+      - type: input
+        key: Scope
+        title: Scope (optional)
+      - type: input
+        key: Message
+        title: Message
+    command: "git commit --message {{.Form.Type}}{{if .Form.Scope}}'('{{.Form.Scope | quote}}')'{{end}}': '{{.Form.Message | quote}}"

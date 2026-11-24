@@ -41,7 +41,6 @@ check "typescript-language-server" "command -v typescript-language-server"
 check "bash-language-server" "command -v bash-language-server"
 check "vscode-langservers-extracted" "command -v vscode-css-languageserver || command -v vscode-html-languageserver || npm list -g vscode-langservers-extracted"
 check "intelephense" "command -v intelephense"
-check "vue-language-server" "command -v vue-language-server"
 check "tailwindcss-language-server" "command -v tailwindcss-language-server"
 echo ""
 

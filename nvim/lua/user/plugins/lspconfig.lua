@@ -31,11 +31,6 @@ return {
       capabilities = capabilities
     })
 
-    -- Vue, JavaScript, TypeScript
-    vim.lsp.config('volar', {
-      capabilities = capabilities,
-    })
-
     -- TypeScript 7 native language server (`tsc --lsp`)
     vim.lsp.config('tsc', { capabilities = capabilities })
 
@@ -72,7 +67,6 @@ return {
     -- Enable LSP servers
     vim.lsp.enable({
       'intelephense',
-      'volar',
       'tsc',
       'tailwindcss',
       'jsonls',
