@@ -1,6 +1,6 @@
 # Appearance
 background = #1e1e1e
-background-opacity = 0.85
+background-opacity = 0.9
 foreground = #ffffff
 palette = 0=#1e1e1e
 palette = 1=#e06c75

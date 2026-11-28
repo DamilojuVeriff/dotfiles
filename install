@@ -76,6 +76,16 @@ echo ""
 echo "==> Linking Ghostty configuration"
 link_file $DOTFILES/ghostty/config.ghostty $HOME/Library/Application\ Support/com.mitchellh.ghostty/config.ghostty
 
+# Rex
+echo ""
+echo "==> Linking Rex configuration"
+mkdir -p $HOME/.config
+link_file $DOTFILES/rex $HOME/.config/rex
+if command -v rex &>/dev/null; then
+  rex config reload || true
+  bash $DOTFILES/rex/settings.sh || true
+fi
+
 # NVM (Node Version Manager)
 echo ""
 echo "==> Linking NVM configuration..."

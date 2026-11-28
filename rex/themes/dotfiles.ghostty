@@ -1,0 +1,24 @@
+# Colours ported from ghostty/config.ghostty.
+# Imported into Rex by rex/settings.sh (client.theme.import).
+background = #1e1e1e
+foreground = #ffffff
+palette = 0=#1e1e1e
+palette = 1=#e06c75
+palette = 2=#98c379
+palette = 3=#d19a66
+palette = 4=#61afef
+palette = 5=#c678dd
+palette = 6=#56b6c2
+palette = 7=#dcdcdc
+palette = 8=#5a5a5a
+palette = 9=#e06c75
+palette = 10=#98c379
+palette = 11=#d19a66
+palette = 12=#61afef
+palette = 13=#c678dd
+palette = 14=#56b6c2
+palette = 15=#ffffff
+selection-background = #ffffff
+selection-foreground = #1e1e1e
+cursor-color = #ffffff
+cursor-text = #1e1e1e

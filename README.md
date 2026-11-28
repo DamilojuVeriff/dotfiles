@@ -30,6 +30,7 @@ A single `./install` script symlinks configs into place and installs all depende
 | ⚡ | **scripts** | `t` (tmux session switcher), `update` (update all tools), `nvim-health` (setup checker) — linked into `~/.local/bin` |
 | 📗 | **nvm** | Default global npm packages (LSP servers, formatters, linters) |
 | 👻 | **ghostty** | Ghostty terminal config |
+| 🦖 | **rex** | Rex config — tmux-style `Ctrl+B` key bindings in Lua, plus the Ghostty font, colours & padding as app settings |
 | 🖼️ | **iterm** | Exported iTerm2 profile backup |
 | 🔧 | **git** | Git config with aliases, delta as pager (Tokyo Night), global gitignore |
 | 🍎 | **macos** | macOS system preferences script (keyboard, Finder, Dock, screenshots) |
@@ -55,7 +56,7 @@ chmod +x install
 | 2️⃣ | Install Oh My Zsh (if missing) |
 | 3️⃣ | Install Homebrew (if missing) |
 | 4️⃣ | Symlink dotfiles (`~/.zshrc`, `~/.zprofile`, `~/.p10k.zsh`, `~/.tmux.conf`, `~/.config/nvim`, scripts → `~/.local/bin`, etc.) |
-| 5️⃣ | Run `brew bundle` to install everything in the Brewfile, then link the Ghostty config |
+| 5️⃣ | Run `brew bundle` to install everything in the Brewfile, then link the Ghostty and Rex configs |
 | 6️⃣ | Set up NVM with default packages |
 | 7️⃣ | Symlink lazygit, Claude settings, editorconfig, & git config |
 | 8️⃣ | Clone TPM (Tmux Plugin Manager) |
@@ -75,6 +76,7 @@ make tmux        # Just set up tmux
 make zsh         # Just link zsh config
 make nvm         # Just set up NVM defaults
 make ghostty     # Just link Ghostty config
+make rex         # Just link Rex config & apply app settings
 make lazygit     # Just link lazygit config
 make git         # Just link git config
 make update      # Quick update (brew, nvim plugins, tpm)
@@ -95,6 +97,11 @@ make clean       # Remove all symlinks (uninstall)
 ├── 👻 ghostty/
 │   └── config.ghostty             # Ghostty terminal config
 ├── 🖼️  iterm/backup.itermexport    # iTerm2 profile
+├── 🦖 rex/
+│   ├── init.lua                   # Entry point → ~/.config/rex
+│   ├── keybindings.lua            # tmux-style Ctrl+B key bindings
+│   ├── settings.sh                # App settings (font, cursor, padding)
+│   └── themes/dotfiles.ghostty    # Colour palette imported into Rex
 ├── 🦥 lazygit/config.yml          # Lazygit theme & delta diffs
 ├── 🔧 git/
 │   ├── gitconfig                  # Git aliases, settings & delta theme

@@ -1,6 +1,6 @@
 DOTFILES := $(shell cd "$(dir $(abspath $(lastword $(MAKEFILE_LIST))))" && pwd)
 
-.PHONY: install brew nvim tmux zsh nvm ghostty lazygit git update clean
+.PHONY: install brew nvim tmux zsh nvm ghostty rex lazygit git update clean
 
 install:
 	@bash $(DOTFILES)/install
@@ -36,6 +36,13 @@ ghostty:
 	@mkdir -p "$(HOME)/Library/Application Support/com.mitchellh.ghostty"
 	ln -sf $(DOTFILES)/ghostty/config.ghostty "$(HOME)/Library/Application Support/com.mitchellh.ghostty/config.ghostty"
 
+rex:
+	@mkdir -p $(HOME)/.config
+	@rm -rf $(HOME)/.config/rex
+	ln -sw $(DOTFILES)/rex $(HOME)/.config/rex
+	@command -v rex >/dev/null && rex config reload || true
+	@bash $(DOTFILES)/rex/settings.sh
+
 lazygit:
 	@mkdir -p $(HOME)/.config/lazygit
 	ln -sf $(DOTFILES)/lazygit/config.yml $(HOME)/.config/lazygit/config.yml
@@ -57,6 +64,7 @@ clean:
 	@rm -f $(HOME)/.p10k.zsh
 	@rm -f $(HOME)/.tmux.conf
 	@rm -rf $(HOME)/.config/nvim
+	@rm -f $(HOME)/.config/rex
 	@rm -f $(HOME)/.nvm/default-packages
 	@rm -f $(HOME)/.gitconfig
 	@rm -f $(HOME)/.gitignore_global
